@@ -2,6 +2,27 @@
   (:require [hiccup.core :as hiccup]
             [site.styles.core :as styles]))
 
+(def roadmap-features
+  [["Done"
+    ["release web client"]]
+
+   ["In Progress"
+    ["polish user experience"
+     "mobile clients"
+     "improve developer experience"
+     "integrations API"
+     "email digests"]]
+
+   ["Upcoming"
+    ["keyboard shortcuts"
+     "integrations"
+     "reactions"]]
+
+   ["Future"
+    ["encryption"
+     "federation"
+     "voice, video and screensharing"]]])
+
 (def html
   (hiccup/html
     [:html
@@ -81,18 +102,25 @@
     ; go to https://www.braidchat.com/product for a full tour of the product
     ; go to try.braidchat.com for a demo
 
+    [:section#roadmap
+     [:div.content
+      [:h2 "Roadmap"]
+      [:div.kanban
+       (for [[p features] roadmap-features]
+         [:div.phase {:data-phase p}
+          [:h3 p]
+          [:div.features
+           (for [feature features]
+             [:div.feature feature])]])]]]
 
     [:section#contribute
      [:div.content
       [:h2 "Contribute"]
-
-
       [:div
        [:h3 "Code"]
        "easy features"
        "integrations"
        "core" ]
-
       [:div
        [:h3 "Give Feedback"]
        "test"
@@ -116,16 +144,13 @@
        "bounty source"
        "gratipay"]
 
-      [:button "Join Braid Chat"]]]
+      [:button "Join Braid Chat"]]]))
 
-[:section#roadmap
- [:div.content
-  [:h2 "Roadmap"]
-  (for [feature ["polish user experience"
-                 "mobile clients"
-                 "improve developer experience"
 
-                 "integration hooks + integrations"
 
-                 ]]
-    [:div feature])]]))
+
+
+
+
+
+

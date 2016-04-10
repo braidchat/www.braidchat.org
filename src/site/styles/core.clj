@@ -20,6 +20,7 @@
       :line-height "1.25"}]
 
     [:section
+     {:padding [[pad 0]]}
      [:.content
       {:max-width "800px"
        :margin [[0 "auto"]]}]]
@@ -31,8 +32,8 @@
       {:color color-link-hover}]]
 
     [:#header
-     {;:background "skyblue"
-      :padding [[pad 0]]}
+     {:background "skyblue"
+      }
 
      [:.content
       {:position "relative"}
@@ -56,8 +57,8 @@
           :margin-right "0.25em"}]]]]]
 
     [:#hero
-     {;:background "skyblue"
-      :padding-bottom pad}
+     {:background "skyblue"
+      :padding-top 0}
 
      [:.content
       {:position "relative"
@@ -68,7 +69,6 @@
 
       [:.story
        {:max-width "25em"
-
         :display "inline-block"}
 
        [:h1
@@ -82,5 +82,40 @@
        {:height image-height
         :position "absolute"
         :left "30em"
-        :top 0
-        }]]]))
+        :top 0}]]]
+
+
+
+    [:#roadmap
+     {:background "skyblue"}
+
+     [:.content
+      [:.kanban
+       {:display "flex"
+        :justify-content "space-between"}
+
+       [:.phase
+        {:background "#DFDFDF"
+         :flex-basis "22%"
+         :padding "0.5em"
+         :border-radius "0.25em"}
+
+        [:.feature
+         {:background "white"
+          :margin "0.5em 0"
+          :padding "0.5em"
+          :border-radius "0.25em"
+          :position "relative"}]
+
+        ["&[data-phase=Done]"
+         [:.feature
+          {:padding-right "1em"}
+
+          [:&:after
+           {:content "\"\uf058\""
+            :font-family "FontAwesome"
+            :position "absolute"
+            :right "0.5em"
+            :top "0.5em"
+            :color "green"
+            :font-size "1.1em"}]]]]]]]))
